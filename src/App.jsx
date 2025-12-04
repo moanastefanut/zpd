@@ -28,6 +28,12 @@ const tovarasi = [
         img: `/draven.jpg`, 
     },
 
+       { 
+        name: `RUUK`, 
+        title: `ZiS Si CASiAN`, 
+        desc: `FUT CEL MAI BiNE DE PE PLANETA`, 
+        img: `/ruuk.jpg`, 
+    },
 
 
       { 
