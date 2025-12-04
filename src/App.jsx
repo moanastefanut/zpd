@@ -1,9 +1,17 @@
 import React from 'react';
 const tovarasi = [
+
+      { 
+        name: `MiTRO THE DEVELOPER`, 
+        title: `ZiS Si ANTiFiLET`, 
+        desc: `ORiCAT DE GREU V AR Fi iN ViATA NU VA UMBLATi LA BORCANUL CU DULCEATA`, 
+        img: `/mitro.jpg`, 
+    },
+    
     { 
         name: `HoTz`, 
         title: `DiSTRUGATORUL DE ViRGiNE`, 
-        desc: `a locrat fratioru tau si pe santier problema l tine e ca daca te las an centru bucuresti nu sti sa ajongi acasa mai parpandele da esti taren carcasa pe cheat mancamiias oule den farfurie`, 
+        desc: `„Alooo, șmecherilor cu toc! Stați sub sandalele femeilor și faceți cum vor ele! Nu uitați, se schimbă președintele țării… da’ o femeie! Și, dacă tot e la modă, nu uitați să vă schimbați și voi sexul! 😂 gândiți cu capul vostru nu cu sandalele ei😂`, 
         img: '/hotz.jpg', 
     },
     { 
@@ -12,12 +20,15 @@ const tovarasi = [
         desc: `Fame is the echo of your name in the streets, but true power is the silence that falls when you enter the room. I don't sell a substance, I sell the momentary escape and for that escape, the world will pay any price`, 
         img: `/ottway.jpg`, 
     },
-    { 
-        name: `MiTRO THE DEVELOPER`, 
-        title: `ZiS Si ANTiFiLET`, 
-        desc: `ORiCAT DE GREU V AR Fi iN ViATA NU VA UMBLATi LA BORCANUL CU DULCEATA`, 
-        img: `/mitro.jpg`, 
+
+       { 
+        name: `DRAVEN`, 
+        title: `REGELE LiTORALULUi`, 
+        desc: `Leul e leu si in jungla si in cusca...inca putin...`, 
+        img: `/draven.jpg`, 
     },
+
+
 
       { 
         name: `KRAKEN`, 
@@ -33,12 +44,6 @@ const tovarasi = [
         img: `/corbelusi.jpg`, 
     },
 
-         { 
-        name: `DRAVEN`, 
-        title: `REGELE LiTORALULUi`, 
-        desc: `Leul e leu si in jungla si in cusca...inca putin...`, 
-        img: `/draven.jpg`, 
-    },
 
       { 
         name: `MAMACU`, 
