@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #f0f0f0; 
+    font-family: Arial, sans-serif; 
+    line-height: 1.6;
+}
+
+#root, .app {
+    min-height: 100vh;
+}
