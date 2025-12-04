@@ -1,22 +1,5 @@
 import React from 'react';
 import './App.css'; 
-// Asigură-te că adaugi în src/App.css (sau index.css) animația pentru titlu:
-/*
-@keyframes pulseWobble {
-    0% { transform: scale(1.0); text-shadow: 0 0 5px rgba(255, 193, 7, 0.5); opacity: 0.9; }
-    50% { transform: scale(1.01) translateY(-1px); text-shadow: 0 0 15px #ffc107, 0 0 25px rgba(255, 193, 7, 0.7); opacity: 1; }
-    100% { transform: scale(1.0); text-shadow: 0 0 5px rgba(255, 193, 7, 0.5); opacity: 0.9; }
-}
-.animated-title {
-    display: inline-block;
-    animation: pulseWobble 3s infinite ease-in-out; 
-    transition: all 0.3s;
-}
-*/
-
-// ******************************************************
-// array-ul complet cu tovarășii (ZAPADA TEAM)
-// ******************************************************
 const tovarasi = [
     { 
         name: `MiTRO THE DEVELOPER`, 
@@ -146,9 +129,9 @@ const BackgroundMusic = () => {
                 backgroundColor: 'rgba(0, 0, 0, 0.7)', borderRadius: '8px',
             }}>
                 {isMuted ? (
-                    <span>click oriunde pe ecran pentru m.a.n.e.l.e.</span>
+                    <span>Z  P  D</span>
                 ) : (
-                    <span>m.a.n.e.l.e. on 🎶</span>
+                    <span>ZAPADA ABOVE ALL</span>
                 )}
             </div>
         </React.Fragment>
@@ -268,8 +251,6 @@ function App() {
                         <div>
                             <p style={{marginBottom: 0}}>
                                 <span style={styles.nameTag}>{t.name.toUpperCase()}</span> 
-                                <span style={{fontSize: '1em', color: '#ffc107', margin: '0 5px'}}>POR</span>
-                                <span style={styles.nameTag}>MITRO</span> 
                             </p>
                             
                             <p style={{fontSize: '1.2em', color: '#ffc107', marginTop: '10px', fontWeight: 'bold'}}>{t.title.toUpperCase()}</p>
