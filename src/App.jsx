@@ -72,6 +72,21 @@ const tovarasi = [
         desc: `Aici imi dadea drumu De la parnaie Eram suparat Ca numai scapa nimeni sapunu`, 
         img: `/cz.jpg`, 
     },
+
+      { 
+        name: `PAUL`, 
+        title: `BEBiNO BROTHER`, 
+        desc: `Cu toate dovezile în faţă eu sunt de 10 luni arestat la domiciliu şi nu mi se acordă nicio şansă. În acest moment sunt în arest pe baza unor declaraţii în acest dosar: declaraţia lui Cezar, a lui Mohamed şi a lui Împuşcatu' Florin, care susţine că l-am tăiat eu.`, 
+        img: `/paul.jpg`, 
+    },
+
+   { 
+        name: `CLARK`, 
+        title: `RUUK'S BROTHER`, 
+        desc: `sunt fanul lui ruuk666 cel nascut in belmont 187th street.`, 
+        img: `/clark.jpg`, 
+    },
+
     { 
         name: `DARK4MOON`, 
         title: `CAPO Di AZTECAS`, 
@@ -86,12 +101,8 @@ const tovarasi = [
     },
 ];
 
-// Componenta pentru muzica (foloseste audio HTML5 cu mute/unmute pe click)
 const BackgroundMusic = () => {
-    // ID-ul piesei pe care ai ales-o (folosit ca sursa mp3)
-    // FIX: Am setat sursa MP3 la o cale standard din folderul public
-    // ATENȚIE: Trebuie să ai un fișier numit 'w5dRIlpFsdM.mp3' în folderul public
-    const audioFilePath = `/w5dRIlpFsdM.mp3`; 
+    const audioFilePath = `/zpd.mp3`; 
 
     const [isMuted, setIsMuted] = React.useState(true);
     const audioRef = React.useRef(null);
@@ -120,16 +131,14 @@ const BackgroundMusic = () => {
 
     return (
         <React.Fragment>
-            {/* Playerul Audio HTML5 - va porni MUTED la încărcarea paginii */}
             <audio 
                 ref={audioRef} 
                 autoPlay 
                 loop 
-                muted={isMuted} // Mute inițial
-                src={audioFilePath} // Calea către MP3
+                muted={isMuted} 
+                src={audioFilePath} 
             />
 
-            {/* Indicator pentru muzică: spune-le tovarășilor ce trebuie să facă */}
             <div style={{
                 position: 'fixed', bottom: '15px', right: '15px', zIndex: 100, 
                 color: isMuted ? '#ffc107' : '#10b981', 
@@ -146,7 +155,6 @@ const BackgroundMusic = () => {
     );
 };
 
-// Componenta principală App
 function App() {
     
     const [hoveredCard, setHoveredCard] = React.useState(null);
@@ -235,7 +243,6 @@ function App() {
 
     return (
         <div style={styles.app}>
-            {/* APLICĂ CLASA AICI pentru animație (asigură-te că e în App.css) */}
             <h1 style={styles.headerTitle} className="animated-title">
                 ZAPADA <span style={styles.titleHighlight}>TEAM</span>
             </h1>
@@ -259,24 +266,20 @@ function App() {
                         </div>
                         
                         <div>
-                            {/* Numele Tovarășului: CZ POR Numele Tau (Ex: CZ POR STEFANUT) */}
                             <p style={{marginBottom: 0}}>
                                 <span style={styles.nameTag}>{t.name.toUpperCase()}</span> 
                                 <span style={{fontSize: '1em', color: '#ffc107', margin: '0 5px'}}>POR</span>
                                 <span style={styles.nameTag}>MITRO</span> 
                             </p>
                             
-                            {/* Titlul / Porecla */}
                             <p style={{fontSize: '1.2em', color: '#ffc107', marginTop: '10px', fontWeight: 'bold'}}>{t.title.toUpperCase()}</p>
 
-                            {/* Descrierea (gluma) */}
                             <p style={styles.cardDescription}>{t.desc}</p>
                         </div>
                     </div>
                 ))}
             </div>
             
-            {/* Muzica din fundal, ascunsa, dar cu control pe click */}
             <BackgroundMusic />
             
             <div style={{textAlign: 'center', marginTop: '50px', color: '#666', fontSize: '0.8em'}}>
