@@ -1,13 +1,29 @@
 import React from 'react';
-const tovarasi = [
+import './App.css'; 
+// Asigură-te că adaugi în src/App.css (sau index.css) animația pentru titlu:
+/*
+@keyframes pulseWobble {
+    0% { transform: scale(1.0); text-shadow: 0 0 5px rgba(255, 193, 7, 0.5); opacity: 0.9; }
+    50% { transform: scale(1.01) translateY(-1px); text-shadow: 0 0 15px #ffc107, 0 0 25px rgba(255, 193, 7, 0.7); opacity: 1; }
+    100% { transform: scale(1.0); text-shadow: 0 0 5px rgba(255, 193, 7, 0.5); opacity: 0.9; }
+}
+.animated-title {
+    display: inline-block;
+    animation: pulseWobble 3s infinite ease-in-out; 
+    transition: all 0.3s;
+}
+*/
 
-      { 
+// ******************************************************
+// array-ul complet cu tovarășii (ZAPADA TEAM)
+// ******************************************************
+const tovarasi = [
+    { 
         name: `MiTRO THE DEVELOPER`, 
         title: `ZiS Si ANTiFiLET`, 
         desc: `ORiCAT DE GREU V AR Fi iN ViATA NU VA UMBLATi LA BORCANUL CU DULCEATA`, 
         img: `/mitro.jpg`, 
     },
-    
     { 
         name: `HoTz`, 
         title: `DiSTRUGATORUL DE ViRGiNE`, 
@@ -20,95 +36,117 @@ const tovarasi = [
         desc: `Fame is the echo of your name in the streets, but true power is the silence that falls when you enter the room. I don't sell a substance, I sell the momentary escape and for that escape, the world will pay any price`, 
         img: `/ottway.jpg`, 
     },
-
-       { 
+    { 
         name: `DRAVEN`, 
         title: `REGELE LiTORALULUi`, 
         desc: `Leul e leu si in jungla si in cusca...inca putin...`, 
         img: `/draven.jpg`, 
     },
-
-       { 
+    { 
         name: `RUUK`, 
         title: `ZiS Si CASiAN`, 
-        desc: `FUT CEL MAI BiNE DE PE PLANETA`, 
+        desc: `vorbiti ma de bine fetelor ca tot rau o duc`, 
         img: `/ruuk.jpg`, 
     },
-
-
-      { 
+    { 
         name: `KRAKEN`, 
         title: `iNViEREA LUi KiNG VON`, 
         desc: `L-A INViAT PE KiNG VON DiN MORMANT`, 
         img: `/kraken.jpg`, 
     },
-
-         { 
+    { 
         name: `CORBELUSi`, 
         title: `F10 OWNER`, 
         desc: `The BMW is just a fast way to get to the top, but the power is in knowing you can park it anywhere you want. Fame is measured by the roar of the engine as you drive away from the chaos you created.`, 
         img: `/corbelusi.jpg`, 
     },
-
-
-      { 
+    { 
         name: `MAMACU`, 
         title: `PROFi OWNER`, 
         desc: `I might not be the President, but Profi Romania knows my status and value, Profi CEO.`, 
         img: `/mamacu.jpg`, 
     },
-
-     { 
+    { 
         name: `CZ`, 
         title: `30 DE ANi DE PUSCARiE`, 
         desc: `Aici imi dadea drumu De la parnaie Eram suparat Ca numai scapa nimeni sapunu`, 
         img: `/cz.jpg`, 
     },
-
-       { 
+    { 
         name: `DARK4MOON`, 
         title: `CAPO Di AZTECAS`, 
         desc: `Am avut lider peste tot an orice clan mafiot`, 
         img: `/dark4moon.png`, 
     },
-
-           { 
+    { 
         name: `ARMANDO`, 
         title: `SEFUL FEMEiLOR`, 
         desc: `Atata timp cat am cutitu in mana tai si roboti 🏆`, 
         img: `/armando.png`, 
     },
-
-
 ];
 
+// Componenta pentru muzica (foloseste audio HTML5 cu mute/unmute pe click)
 const BackgroundMusic = () => {
-    const videoId = `w5dRIlpFsdM`; 
-    const embedUrl = `https://www.youtube.com/embed/w5dRIlpFsdM?si=jXpTTqF6intgPmuG`;
+    // ID-ul piesei pe care ai ales-o (folosit ca sursa mp3)
+    // FIX: Am setat sursa MP3 la o cale standard din folderul public
+    // ATENȚIE: Trebuie să ai un fișier numit 'w5dRIlpFsdM.mp3' în folderul public
+    const audioFilePath = `/w5dRIlpFsdM.mp3`; 
+
+    const [isMuted, setIsMuted] = React.useState(true);
+    const audioRef = React.useRef(null);
+
+    const handleFirstInteraction = () => {
+        if (isMuted && audioRef.current) {
+            audioRef.current.muted = false; 
+            audioRef.current.play().catch(e => console.error("Redarea audio a eșuat:", e));
+            setIsMuted(false);
+            
+            document.removeEventListener('click', handleFirstInteraction);
+            document.removeEventListener('scroll', handleFirstInteraction);
+        }
+    };
+
+    React.useEffect(() => {
+        if (isMuted) {
+            document.addEventListener('click', handleFirstInteraction);
+            document.addEventListener('scroll', handleFirstInteraction); 
+        }
+        return () => {
+            document.removeEventListener('click', handleFirstInteraction);
+            document.removeEventListener('scroll', handleFirstInteraction);
+        };
+    }, [isMuted]);
 
     return (
-        <div style={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            width: '1px', 
-            height: '1px', 
-            overflow: 'hidden',
-            zIndex: -1, 
-        }}>
-            <iframe 
-                width="1" 
-                height="1" 
-                src={embedUrl}
-                title="Z A P A D A" 
-                frameBorder="0" 
-                allow="autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-            ></iframe>
-        </div>
+        <React.Fragment>
+            {/* Playerul Audio HTML5 - va porni MUTED la încărcarea paginii */}
+            <audio 
+                ref={audioRef} 
+                autoPlay 
+                loop 
+                muted={isMuted} // Mute inițial
+                src={audioFilePath} // Calea către MP3
+            />
+
+            {/* Indicator pentru muzică: spune-le tovarășilor ce trebuie să facă */}
+            <div style={{
+                position: 'fixed', bottom: '15px', right: '15px', zIndex: 100, 
+                color: isMuted ? '#ffc107' : '#10b981', 
+                fontSize: '1.2em', cursor: 'default', padding: '10px', 
+                backgroundColor: 'rgba(0, 0, 0, 0.7)', borderRadius: '8px',
+            }}>
+                {isMuted ? (
+                    <span>click oriunde pe ecran pentru m.a.n.e.l.e.</span>
+                ) : (
+                    <span>m.a.n.e.l.e. on 🎶</span>
+                )}
+            </div>
+        </React.Fragment>
     );
 };
 
+// Componenta principală App
 function App() {
     
     const [hoveredCard, setHoveredCard] = React.useState(null);
@@ -118,65 +156,87 @@ function App() {
             minHeight: '100vh',
             backgroundColor: '#0d0d0d', 
             color: '#f0f0f0',
-            fontFamily: 'Arial, sans-serif',
+            fontFamily: 'Impact, Arial, sans-serif', 
             paddingBottom: '50px',
+            backgroundImage: 'linear-gradient(90deg, rgba(255,193,7,0.1) 0%, rgba(13,13,13,1) 10%, rgba(13,13,13,1) 90%, rgba(255,193,7,0.1) 100%)'
         },
         headerTitle: {
             textAlign: 'center',
             paddingTop: '50px',
-            fontSize: '2.5em',
-            color: '#ffffff',
+            fontSize: '3.5em', 
+            color: '#ffc107', 
             marginBottom: '40px',
             textTransform: 'uppercase',
+            letterSpacing: '5px', 
         },
         titleHighlight: {
             color: '#ffffff', 
         },
         cardContainer: {
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '30px',
-            maxWidth: '1300px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+            gap: '50px 30px', 
+            maxWidth: '1400px',
             margin: '0 auto',
             padding: '20px',
+            justifyContent: 'center',
         },
-        getCardStyle: (name) => ({
-            backgroundColor: '#1a1a1a',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.5)',
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            transform: hoveredCard === name ? 'translateY(-5px)' : 'none',
-            boxShadow: hoveredCard === name ? '0 6px 15px rgba(255, 193, 7, 0.5)' : '0 4px 10px rgba(0, 0, 0, 0.5)',
-            cursor: 'pointer',
-        }),
-        cardContent: {
-            padding: '15px',
+        cardWrapper: {
             textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            transition: 'transform 0.3s',
+            cursor: 'pointer',
         },
-        cardTitle: {
-            fontSize: '1.5em',
-            color: '#ffc107',
-            marginBottom: '5px',
+        cardWrapperHover: {
+            transform: 'scale(1.05)',
         },
-        cardDescription: {
-            color: '#999',
-            fontStyle: 'italic',
+        cardImageContainer: {
+            width: '250px', 
+            height: '250px',
+            borderRadius: '50%', 
+            overflow: 'hidden',
+            margin: '0 auto 20px',
+            border: '5px solid #1a1a1a', 
+            boxShadow: '0 0 0 5px rgba(255,193,7,0.1)', 
+            transition: 'box-shadow 0.3s',
+        },
+        cardImageContainerHover: {
+            boxShadow: '0 0 0 5px #ffc107, 0 0 20px rgba(255, 193, 7, 0.8)', 
         },
         getImgStyle: (name) => ({
             width: '100%',
-            height: '350px',
+            height: '100%',
             objectFit: 'cover',
             filter: hoveredCard === name ? 'grayscale(0%)' : 'grayscale(100%)', 
             transition: 'filter 0.5s',
-            borderBottom: hoveredCard === name ? '4px solid #ffc107' : 'none',
-        })
+        }),
+        nameTag: {
+            fontSize: '1.2em',
+            color: '#ffffff',
+            backgroundColor: '#ffc107',
+            padding: '5px 10px',
+            borderRadius: '4px',
+            textTransform: 'uppercase',
+            fontWeight: 'bold',
+            display: 'inline-block',
+            margin: '5px 0',
+        },
+        cardDescription: {
+            color: '#ccc',
+            fontStyle: 'italic',
+            fontSize: '0.9em',
+            maxWidth: '300px',
+            margin: '10px auto 0',
+        }
     };
 
 
     return (
         <div style={styles.app}>
-            <h1 style={styles.headerTitle}>
+            {/* APLICĂ CLASA AICI pentru animație (asigură-te că e în App.css) */}
+            <h1 style={styles.headerTitle} className="animated-title">
                 ZAPADA <span style={styles.titleHighlight}>TEAM</span>
             </h1>
             
@@ -184,23 +244,39 @@ function App() {
                 {tovarasi.map((t) => (
                     <div 
                         key={t.name}
-                        style={styles.getCardStyle(t.name)}
+                        style={{...styles.cardWrapper, ...(hoveredCard === t.name ? styles.cardWrapperHover : {})}}
                         onMouseEnter={() => setHoveredCard(t.name)}
                         onMouseLeave={() => setHoveredCard(null)}
                     >
-                        <img 
-                            src={t.img} 
-                            alt={`Profile of ${t.name}`} 
-                            style={styles.getImgStyle(t.name)}
-                        />
-                        <div style={styles.cardContent}>
-                            <h2 style={styles.cardTitle}>{t.name.toUpperCase()} <span style={{color: '#fff'}}>&times;</span> {t.title.toUpperCase()}</h2>
+                        <div
+                            style={{...styles.cardImageContainer, ...(hoveredCard === t.name ? styles.cardImageContainerHover : {})}}
+                        >
+                            <img 
+                                src={t.img} 
+                                alt={`Profile of ${t.name}`} 
+                                style={styles.getImgStyle(t.name)}
+                            />
+                        </div>
+                        
+                        <div>
+                            {/* Numele Tovarășului: CZ POR Numele Tau (Ex: CZ POR STEFANUT) */}
+                            <p style={{marginBottom: 0}}>
+                                <span style={styles.nameTag}>{t.name.toUpperCase()}</span> 
+                                <span style={{fontSize: '1em', color: '#ffc107', margin: '0 5px'}}>POR</span>
+                                <span style={styles.nameTag}>MITRO</span> 
+                            </p>
+                            
+                            {/* Titlul / Porecla */}
+                            <p style={{fontSize: '1.2em', color: '#ffc107', marginTop: '10px', fontWeight: 'bold'}}>{t.title.toUpperCase()}</p>
+
+                            {/* Descrierea (gluma) */}
                             <p style={styles.cardDescription}>{t.desc}</p>
                         </div>
                     </div>
                 ))}
             </div>
             
+            {/* Muzica din fundal, ascunsa, dar cu control pe click */}
             <BackgroundMusic />
             
             <div style={{textAlign: 'center', marginTop: '50px', color: '#666', fontSize: '0.8em'}}>
