@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css'; 
 const tovarasi = [
     { 
-        name: `MiTRO THE DEVELOPER`, 
-        title: `ZiS Si ANTiFiLET`, 
-        desc: `ORiCAT DE GREU V AR Fi iN ViATA NU VA UMBLATi LA BORCANUL CU DULCEATA`, 
+        name: `MiTRO`, 
+        title: `ARTiST CAND ViNE VORBA DE COD`, 
+        desc: `DORiT Si CAUTAT DE TOATE TELEViZiUNiLE ROMANESTi`, 
         img: `/mitro.jpg`, 
     },
     { 
@@ -67,7 +67,7 @@ const tovarasi = [
         name: `CLARK`, 
         title: `RUUK'S BROTHER`, 
         desc: `sunt fanul lui ruuk666 cel nascut in belmont 187th street.`, 
-        img: `/clark.jpg`, 
+        img: `/clark.png`, 
     },
 
     { 
