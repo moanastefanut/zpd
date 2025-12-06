@@ -7,6 +7,12 @@ const tovarasi = [
         desc: `DORiT Si CAUTAT DE TOATE TELEViZiUNiLE ROMANESTi`, 
         img: `/mitro.jpg`, 
     },
+        { 
+        name: `KRAKEN`, 
+        title: `iNViEREA LUi KiNG VON`, 
+        desc: `L-A INViAT PE KiNG VON DiN MORMANT`, 
+        img: `/kraken.jpg`, 
+    },
     { 
         name: `HoTz`, 
         title: `DiSTRUGATORUL DE ViRGiNE`, 
@@ -30,12 +36,6 @@ const tovarasi = [
         title: `ZiS Si CASiAN`, 
         desc: `vorbiti ma de bine fetelor ca tot rau o duc`, 
         img: `/ruuk.jpg`, 
-    },
-    { 
-        name: `KRAKEN`, 
-        title: `iNViEREA LUi KiNG VON`, 
-        desc: `L-A INViAT PE KiNG VON DiN MORMANT`, 
-        img: `/kraken.jpg`, 
     },
     { 
         name: `CORBELUSi`, 
