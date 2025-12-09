@@ -82,6 +82,18 @@ const tovarasi = [
         desc: `Atata timp cat am cutitu in mana tai si roboti 🏆`, 
         img: `/armando.png`, 
     },
+    { 
+        name: `CALiN GEORGESCU`, 
+        title: `THE TRUE LEADER`, 
+        desc: `Eu nu opresc masina, pun o palma pe pamantul strabun, intru in rezonanta cu istoria si simt vibratiile daciilor care imi soptesc : la sensiul giratoriu, a doua iesire.`, 
+        img: `/cg.png`, 
+    },
+    { 
+        name: `CHARLIE KiRK`, 
+        title: `A TRUE HERO`, 
+        desc: `Sistemul te vrea slab, drogat și singur ca să te poată controla. Fii un rebel adevărat: întemeiază o familie tradițională, cumpără-ți o armă și rămâi treaz.`, 
+        img: `/cc.png`, 
+    },
 ];
 
 const BackgroundMusic = () => {
