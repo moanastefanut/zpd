@@ -82,13 +82,6 @@ const tovarasi = [
         desc: `Atata timp cat am cutitu in mana tai si roboti 🏆`, 
         img: `/armando.png`, 
     },
-
-      { 
-        name: `ERiKA`, 
-        title: `DESCURCAREATA MEREU CAND VAD O PULA`, 
-        desc: `Arta e arta.....cum sug eu pula prin Brasov nu o mai face nimeni altcineva....ma futeam de mica`, 
-        img: `/erika.png`, 
-    },
 ];
 
 const BackgroundMusic = () => {
