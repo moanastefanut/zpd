@@ -3,8 +3,8 @@ import './App.css';
 const tovarasi = [
     { 
         name: `MiTRO`, 
-        title: `ARTiST CAND ViNE VORBA DE COD`, 
-        desc: `DORiT Si CAUTAT DE TOATE TELEViZiUNiLE ROMANESTi`, 
+        title: `ZiS Si MAMA CUM SE AUDE GAGiCATA`, 
+        desc: `DORiT Si CAUTAT DE TOATE TELEViZiUNiLE ROMANESTi iNCEPAND DE LA TVR LA BBC Si PANA LA PRO TV`, 
         img: `/mitro.jpg`, 
     },
         { 
@@ -82,25 +82,7 @@ const tovarasi = [
         desc: `Atata timp cat am cutitu in mana tai si roboti 🏆`, 
         img: `/armando.png`, 
     },
-    { 
-        name: `CALiN GEORGESCU`, 
-        title: `THE TRUE LEADER`, 
-        desc: `Eu nu opresc masina, pun o palma pe pamantul strabun, intru in rezonanta cu istoria si simt vibratiile daciilor care imi soptesc : la sensiul giratoriu, a doua iesire.`, 
-        img: `/cg.png`, 
-    },
-    { 
-        name: `CHARLIE KiRK`, 
-        title: `A TRUE HERO`, 
-        desc: `Sistemul te vrea slab, drogat și singur ca să te poată controla. Fii un rebel adevărat: întemeiază o familie tradițională, cumpără-ți o armă și rămâi treaz.`, 
-        img: `/cc.png`, 
-    },
 
-    { 
-        name: `HORATiU POTRA`, 
-        title: `THE MERCENARY`, 
-        desc: `Supremația nu e o teorie, e o ierarhie. Am nevoie de trei lucruri: bani, aur și femei care înțeleg că sunt pe locul doi. Nu îmi pierd timpul cu droguri; îmi încarc arma, îmi număr lingourile și îmi apăr singur legea`,
-        img: `/potra.png`, 
-    },
 ];
 
 const BackgroundMusic = () => {
