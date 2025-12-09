@@ -94,6 +94,13 @@ const tovarasi = [
         desc: `Sistemul te vrea slab, drogat și singur ca să te poată controla. Fii un rebel adevărat: întemeiază o familie tradițională, cumpără-ți o armă și rămâi treaz.`, 
         img: `/cc.png`, 
     },
+
+    { 
+        name: `HORATiU POTRA`, 
+        title: `THE MERCENARY`, 
+        desc: `Supremația nu e o teorie, e o ierarhie. Am nevoie de trei lucruri: bani, aur și femei care înțeleg că sunt pe locul doi. Nu îmi pierd timpul cu droguri; îmi încarc arma, îmi număr lingourile și îmi apăr singur legea`,
+        img: `/potra.png`, 
+    },
 ];
 
 const BackgroundMusic = () => {
